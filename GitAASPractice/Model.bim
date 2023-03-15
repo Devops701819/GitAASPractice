@@ -15,7 +15,6 @@
           "authentication": null,
           "query": null
         },
-        "options": {},
         "credential": {
           "AuthenticationKind": "ServiceAccount",
           "kind": "File",
@@ -58,34 +57,6 @@
       },
       {
         "name": "Sheet11",
-        "columns": [
-          {
-            "name": "Data",
-            "dataType": "int64",
-            "sourceColumn": "Data"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
-                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data],",
-                "    #\"Promoted Headers\" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Data\", Int64.Type}})",
-                "in",
-                "    #\"Changed Type\""
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "name": "Sheet1 1",
         "columns": [
           {
             "name": "Data",
