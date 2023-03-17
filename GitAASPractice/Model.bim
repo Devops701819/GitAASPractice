@@ -56,32 +56,6 @@
         ]
       },
       {
-        "name": "Sheet111",
-        "columns": [
-          {
-            "name": "Column1",
-            "dataType": "string",
-            "sourceColumn": "Column1"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
-                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data]",
-                "in",
-                "    Sheet1_Sheet"
-              ]
-            }
-          }
-        ]
-      },
-      {
         "name": "Sheet11",
         "columns": [
           {
@@ -132,6 +106,32 @@
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Data\", Int64.Type}})",
                 "in",
                 "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sheet111",
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string",
+            "sourceColumn": "Column1"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
+                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data]",
+                "in",
+                "    Sheet1_Sheet"
               ]
             }
           }
