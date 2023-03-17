@@ -56,32 +56,6 @@
         ]
       },
       {
-        "name": "Sheet111",
-        "columns": [
-          {
-            "name": "Column1",
-            "dataType": "string",
-            "sourceColumn": "Column1"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
-                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data]",
-                "in",
-                "    Sheet1_Sheet"
-              ]
-            }
-          }
-        ]
-      },
-      {
         "name": "Sheet11",
         "columns": [
           {
@@ -138,6 +112,32 @@
         ]
       },
       {
+        "name": "Sheet111",
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string",
+            "sourceColumn": "Column1"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
+                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data]",
+                "in",
+                "    Sheet1_Sheet"
+              ]
+            }
+          }
+        ]
+      },
+      {
         "name": "Sheet1000",
         "columns": [
           {
@@ -158,6 +158,34 @@
                 "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data]",
                 "in",
                 "    Sheet1_Sheet"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sheet1FeatureB",
+        "columns": [
+          {
+            "name": "Data",
+            "dataType": "int64",
+            "sourceColumn": "Data"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"File/C:\\Users\\7000027272\\Desktop\\DataForGit xlsx\",",
+                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Data\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
               ]
             }
           }
